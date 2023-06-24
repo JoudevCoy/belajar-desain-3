@@ -1,0 +1,38 @@
+<style>
+  body {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    background: #ddd;
+    text-align: center;
+    width: 100%;
+  }
+  iframe {
+    width: 750px;
+    height: 900px;
+  }
+</style>
+
+<iframe id="frameSet" src="http://localhost:8080/" frameborder="1"></iframe>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="width: 100%; display: flex; justify-content: center;">
+  <input style="width: 100%; height: 10px; position: sticky; bottom: 30px;" min="0" max="1890" type="range" id="rangeObj">
+</div>
+<h1 id="text"></h1>
+<script>
+  let rangeInput = document.querySelector("#rangeObj"),
+    iframeObj = document.querySelector("#frameSet");
+  rangeInput.addEventListener("input", () => {
+    setWidth();
+  });
+  function setWidth(){
+    iframeObj.style.width = rangeInput.value + "px";
+    document.getElementById("text").innerHTML = rangeInput.value + "px";
+  }
+</script>
